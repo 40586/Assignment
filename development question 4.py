@@ -2,7 +2,7 @@
 #18-09-2014
 #making up for illness
 
-#WARNING: doesnt work, need to be fixed
+#Update: Now works
 
 #INPUTS
 pool_length = int(input(" Please enter the pools length: "))
@@ -15,21 +15,27 @@ deepend = int(input(" Please enter the length of the deepend: "))
 shallowend = int(input(" Please enter the length of the shallowend: "))
 
 #PROCESSING
+# length x width x depth at the shallowend = X
+# lenght of the deeepend x (d-s) x width = y
+# ((d-s) x lenghth of the slope x width) / 2 = z
+# x + y + z = volume of the pool
 
 #x
 part1 = pool_length * pool_width * shallow
 
 #y
-part2 = deepend * deep * pool_width
+part2a = deep - shallow
+part2 = deepend * part2a * pool_width
 
 #v
 part3 = pool_length - deepend
 
 #(d-s)
-part4 = deepend - shallowend
+part4 = deep - shallow
 
 #c
 pool_slope = part3 - shallowend
+
 #z
 part5 = part4 * pool_slope * pool_width
 part6 = part5 / 2
